@@ -46,6 +46,8 @@
 html {
     scroll-behavior: smooth;
     background-color: var(--bg-main);
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -54,11 +56,19 @@ body {
     background-color: var(--bg-main);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     /* Grid Background */
     background-image: 
         linear-gradient(rgba(48, 54, 61, 0.2) 1px, transparent 1px),
         linear-gradient(90deg, rgba(48, 54, 61, 0.2) 1px, transparent 1px);
     background-size: 50px 50px;
+}
+
+main {
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Typography Overhaul */
@@ -79,6 +89,8 @@ h1, h2, h3, h4 {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 30px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .section {
@@ -530,6 +542,9 @@ h1, h2, h3, h4 {
 
     .container {
         padding: 0 15px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
     }
 
     .glass-card {
@@ -740,6 +755,9 @@ h1, h2, h3, h4 {
 
     .container {
         padding: 0 10px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
     }
 
     .glass-card {
