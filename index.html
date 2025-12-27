@@ -34,8 +34,7 @@
     <nav class="main-nav" id="mainNav">
         <div class="nav-container">
             <div class="nav-brand">
-                <span class="brand-logo">M2K <span class="brand-intel">i</span></span>
-                <span class="brand-subtitle">Intelligence</span>
+                <img src="assets/images/m2ki-logo.png" alt="M2K Intelligence" class="brand-logo-img">
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                 <span></span>
@@ -61,44 +60,52 @@
         <!-- Hero Section: The Intelligence Core -->
         <section id="hero" class="section hero-section">
             <div class="hero-infographic"></div>
-            <div class="hero-content" style="max-width: 1200px;">
-                <div class="infographic-grid">
-                    <div style="grid-column: span 8;" data-aos="fade-right">
-                        <p class="badge badge-primary" style="background: rgba(0,242,255,0.1); color: var(--primary-blue); border: 1px solid var(--primary-blue);">
-                            <i data-lucide="cpu" class="icon-blue"></i> OPERATIONAL FRAMEWORK V2.5
-                        </p>
-                        <h1 class="hero-title">
-                            INFRASTRUCTURE <br>
-                            <span class="gradient-text">INTELLIGENCE</span>
-                        </h1>
-                        <p class="hero-subtitle" style="text-align: left; margin-left: 0;">
-                            Transforming M2K from a local contractor into the primary AI-enabled infrastructure partner 
-                            for Northern Virginia's Mission-Critical facilities.
-                        </p>
-                        <div class="hero-cta" style="justify-content: flex-start; margin-top: 40px;">
-                            <a href="#current-state" class="btn-cyber">DEPLOY STRATEGY</a>
-                            <a href="#partnership" class="btn btn-outline" style="border-color: var(--slate-grey-border); color: var(--text-secondary);">
-                                <i data-lucide="handshake" style="margin-right: 10px;"></i> PARTNERSHIP
-                            </a>
-                        </div>
+            <div class="hero-content" style="max-width: 1400px; margin: 0 auto;">
+                <!-- Centered Header -->
+                <div style="text-align: center; margin-bottom: 60px;" data-aos="fade-up">
+                    <p class="badge badge-primary" style="background: rgba(0,242,255,0.1); color: var(--primary-blue); border: 1px solid var(--primary-blue); display: inline-block; margin-bottom: 20px;">
+                        <i data-lucide="cpu" class="icon-blue"></i> OPERATIONAL FRAMEWORK V2.5
+                    </p>
+                    <h1 class="hero-title" style="font-size: 4.5rem; line-height: 1.1; margin-bottom: 24px;">
+                        INFRASTRUCTURE <br>
+                        <span class="gradient-text">INTELLIGENCE</span>
+                    </h1>
+                    <p class="hero-subtitle" style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px;">
+                        Transforming M2K from a local contractor into the primary AI-enabled infrastructure partner 
+                        for Northern Virginia's Mission-Critical facilities.
+                    </p>
+                    <div class="hero-cta" style="justify-content: center; gap: 20px;">
+                        <a href="#current-state" class="btn-cyber">DEPLOY STRATEGY</a>
+                        <a href="#partnership" class="btn btn-outline" style="border-color: var(--slate-grey-border); color: var(--text-secondary);">
+                            <i data-lucide="handshake" style="margin-right: 10px;"></i> PARTNERSHIP
+                        </a>
                     </div>
-                    <div style="grid-column: span 4;" data-aos="fade-left">
-                        <div class="glass-card" style="border-left: 4px solid var(--primary-blue);">
-                            <div class="metric-label"><i data-lucide="trending-up" class="icon-blue"></i> MARKET CAP POTENTIAL</div>
-                            <div class="counter stat-value" data-target="2.4" data-suffix="B" style="font-size: 3.5rem;">$0B</div>
-                            <p style="color: var(--text-secondary); font-size: 0.8rem;">NORTHERN VIRGINIA INFRASTRUCTURE FUNDING</p>
-                            <div class="data-line"></div>
-                            <div style="display: flex; gap: 20px;">
-                                <div>
-                                    <div class="metric-label">EFFICIENCY</div>
-                                    <div class="counter" data-target="35" data-suffix="%" style="font-size: 1.5rem; font-weight: 800; color: var(--primary-blue);">0%</div>
-                                </div>
-                                <div>
-                                    <div class="metric-label">RISK REDUCTION</div>
-                                    <div class="counter" data-target="40" data-suffix="%" style="font-size: 1.5rem; font-weight: 800; color: var(--safety-orange);">0%</div>
-                                </div>
-                            </div>
+                </div>
+
+                <!-- Metrics Grid - Horizontal Layout -->
+                <div class="infographic-grid" style="margin-top: 60px;">
+                    <div class="glass-card" style="grid-column: span 4; text-align: center; border-top: 3px solid var(--primary-blue);" data-aos="fade-up" data-aos-delay="100">
+                        <div class="metric-label" style="font-size: 0.85rem; margin-bottom: 12px;">
+                            <i data-lucide="trending-up" class="icon-blue"></i> MARKET CAP POTENTIAL
                         </div>
+                        <div class="counter stat-value" data-target="2.4" data-suffix="B" style="font-size: 3.5rem; font-weight: 800; color: var(--primary-blue); margin: 16px 0;">$0B</div>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">NORTHERN VIRGINIA INFRASTRUCTURE FUNDING</p>
+                    </div>
+                    
+                    <div class="glass-card" style="grid-column: span 4; text-align: center; border-top: 3px solid var(--primary-blue);" data-aos="fade-up" data-aos-delay="200">
+                        <div class="metric-label" style="font-size: 0.85rem; margin-bottom: 12px;">
+                            <i data-lucide="zap" class="icon-blue"></i> EFFICIENCY GAIN
+                        </div>
+                        <div class="counter" data-target="35" data-suffix="%" style="font-size: 3.5rem; font-weight: 800; color: var(--primary-blue); margin: 16px 0;">0%</div>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">AI-POWERED OPERATIONAL IMPROVEMENT</p>
+                    </div>
+                    
+                    <div class="glass-card" style="grid-column: span 4; text-align: center; border-top: 3px solid var(--safety-orange);" data-aos="fade-up" data-aos-delay="300">
+                        <div class="metric-label" style="font-size: 0.85rem; margin-bottom: 12px;">
+                            <i data-lucide="shield-check" class="icon-blue"></i> RISK REDUCTION
+                        </div>
+                        <div class="counter" data-target="40" data-suffix="%" style="font-size: 3.5rem; font-weight: 800; color: var(--safety-orange); margin: 16px 0;">0%</div>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">PREDICTIVE AI MITIGATION</p>
                     </div>
                 </div>
             </div>
@@ -151,56 +158,126 @@
                 </div>
                 
                 <!-- Capability Power Matrix Integration -->
-                <div class="glass-card" style="margin-top: 40px;" data-aos="fade-up">
-                    <h3 style="margin-bottom: 30px; text-align: center;"><i data-lucide="bar-chart-horizontal" class="icon-blue"></i> CAPABILITY POWER MATRIX</h3>
+                <div class="glass-card" style="margin-top: 40px;" data-aos="fade-up" id="capability-matrix">
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <h3 style="margin-bottom: 10px;"><i data-lucide="bar-chart-horizontal" class="icon-blue"></i> CAPABILITY POWER MATRIX</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">M2K Intelligence vs. Industry Leaders in Mission-Critical Infrastructure</p>
+                    </div>
                     
-                    <div class="grid grid-2" style="gap: 40px;">
+                    <!-- Comparison Legend -->
+                    <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; padding: 15px; background: rgba(0, 242, 255, 0.05); border-radius: 8px; border: 1px solid var(--slate-grey-border);">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 12px; height: 12px; background: var(--primary-blue); border-radius: 2px;"></div>
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary-blue);">M2K INTELLIGENCE</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 12px; height: 12px; background: var(--text-light); border-radius: 2px;"></div>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary);">HITT / DPR (Tier 1)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 12px; height: 12px; background: rgba(48, 54, 61, 0.6); border-radius: 2px;"></div>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary);">Industry Average</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-2" style="gap: 30px;">
                         <!-- Category 1: Technology -->
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                <span style="font-weight: 700; color: var(--text-secondary);"><i data-lucide="microchip" style="width: 16px; margin-right: 5px;"></i> AI & TECH INTEGRATION</span>
-                                <span style="color: var(--primary-blue); font-weight: 800;">M2Ki LEVEL</span>
+                        <div class="capability-item" data-capability="ai-tech">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">
+                                    <i data-lucide="microchip" style="width: 18px; margin-right: 8px; color: var(--primary-blue);"></i> AI & TECH INTEGRATION
+                                </span>
+                                <span class="capability-value" data-target="95" style="color: var(--primary-blue); font-weight: 800; font-size: 1.1rem;">0%</span>
                             </div>
-                            <div class="progress-bar-container" style="background: rgba(48, 54, 61, 0.5); height: 12px;">
-                                <div class="progress-bar-fill" style="width: 95%; background: var(--primary-blue); box-shadow: var(--shadow-neon);"></div>
+                            <div class="progress-bar-container" style="background: rgba(48, 54, 61, 0.5); height: 16px; border-radius: 8px; position: relative; overflow: hidden;">
+                                <div class="progress-bar-fill capability-bar" data-target="95" style="width: 0%; background: linear-gradient(90deg, var(--primary-blue), #00d4ff); box-shadow: var(--shadow-neon); height: 100%; transition: width 1.5s ease-out;"></div>
+                                <div style="position: absolute; right: 0; top: 0; height: 100%; width: 65%; background: rgba(139, 148, 158, 0.3); border-left: 2px dashed var(--text-light);" title="HITT/DPR: 65%"></div>
+                                <div style="position: absolute; right: 0; top: 0; height: 100%; width: 45%; background: rgba(48, 54, 61, 0.4);" title="Industry Avg: 45%"></div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 5px;">LEGACY: 15% | MISSION CRITICAL: 95%</div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.75rem;">
+                                <span style="color: var(--text-secondary);">Industry Avg: <strong style="color: var(--text-light);">45%</strong></span>
+                                <span style="color: var(--text-secondary);">HITT/DPR: <strong style="color: var(--text-secondary);">65%</strong></span>
+                                <span style="color: var(--primary-blue);">M2Ki: <strong class="capability-value" data-target="95">0%</strong></span>
+                            </div>
+                            <p style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 6px; font-style: italic;">Real-time AI monitoring, predictive maintenance, autonomous compliance</p>
                         </div>
 
                         <!-- Category 2: Data -->
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                <span style="font-weight: 700; color: var(--text-secondary);"><i data-lucide="database" style="width: 16px; margin-right: 5px;"></i> DATA-DRIVEN VALIDATION</span>
-                                <span style="color: var(--primary-blue); font-weight: 800;">M2Ki LEVEL</span>
+                        <div class="capability-item" data-capability="data">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">
+                                    <i data-lucide="database" style="width: 18px; margin-right: 8px; color: var(--primary-blue);"></i> DATA-DRIVEN VALIDATION
+                                </span>
+                                <span class="capability-value" data-target="90" style="color: var(--primary-blue); font-weight: 800; font-size: 1.1rem;">0%</span>
                             </div>
-                            <div class="progress-bar-container" style="background: rgba(48, 54, 61, 0.5); height: 12px;">
-                                <div class="progress-bar-fill" style="width: 90%; background: var(--primary-blue); box-shadow: var(--shadow-neon);"></div>
+                            <div class="progress-bar-container" style="background: rgba(48, 54, 61, 0.5); height: 16px; border-radius: 8px; position: relative; overflow: hidden;">
+                                <div class="progress-bar-fill capability-bar" data-target="90" style="width: 0%; background: linear-gradient(90deg, var(--primary-blue), #00d4ff); box-shadow: var(--shadow-neon); height: 100%; transition: width 1.5s ease-out;"></div>
+                                <div style="position: absolute; right: 0; top: 0; height: 100%; width: 70%; background: rgba(139, 148, 158, 0.3); border-left: 2px dashed var(--text-light);" title="HITT/DPR: 70%"></div>
+                                <div style="position: absolute; right: 0; top: 0; height: 100%; width: 50%; background: rgba(48, 54, 61, 0.4);" title="Industry Avg: 50%"></div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 5px;">LEGACY: 20% | MISSION CRITICAL: 90%</div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.75rem;">
+                                <span style="color: var(--text-secondary);">Industry Avg: <strong style="color: var(--text-light);">50%</strong></span>
+                                <span style="color: var(--text-secondary);">HITT/DPR: <strong style="color: var(--text-secondary);">70%</strong></span>
+                                <span style="color: var(--primary-blue);">M2Ki: <strong class="capability-value" data-target="90">0%</strong></span>
+                            </div>
+                            <p style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 6px; font-style: italic;">SiteSight™ real-time documentation, automated quality control, digital twins</p>
                         </div>
 
                         <!-- Category 3: Certs -->
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                <span style="font-weight: 700; color: var(--text-secondary);"><i data-lucide="scroll-text" style="width: 16px; margin-right: 5px;"></i> GOV. CERTIFICATIONS</span>
-                                <span style="color: var(--primary-blue); font-weight: 800;">M2Ki LEVEL</span>
+                        <div class="capability-item" data-capability="certs">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">
+                                    <i data-lucide="scroll-text" style="width: 18px; margin-right: 8px; color: var(--success-green);"></i> GOV. CERTIFICATIONS
+                                </span>
+                                <span class="capability-value" data-target="100" style="color: var(--success-green); font-weight: 800; font-size: 1.1rem;">0%</span>
                             </div>
-                            <div class="progress-bar-container" style="background: rgba(48, 54, 61, 0.5); height: 12px;">
-                                <div class="progress-bar-fill" style="width: 100%; background: var(--success-green); box-shadow: 0 0 10px rgba(35,134,54,0.5);"></div>
+                            <div class="progress-bar-container" style="background: rgba(48, 54, 61, 0.5); height: 16px; border-radius: 8px; position: relative; overflow: hidden;">
+                                <div class="progress-bar-fill capability-bar" data-target="100" style="width: 0%; background: linear-gradient(90deg, var(--success-green), #2dd47a); box-shadow: 0 0 10px rgba(35,134,54,0.5); height: 100%; transition: width 1.5s ease-out;"></div>
+                                <div style="position: absolute; right: 0; top: 0; height: 100%; width: 85%; background: rgba(139, 148, 158, 0.3); border-left: 2px dashed var(--text-light);" title="HITT/DPR: 85%"></div>
+                                <div style="position: absolute; right: 0; top: 0; height: 100%; width: 60%; background: rgba(48, 54, 61, 0.4);" title="Industry Avg: 60%"></div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 5px;">LEGACY: 40% | MISSION CRITICAL: 100%</div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.75rem;">
+                                <span style="color: var(--text-secondary);">Industry Avg: <strong style="color: var(--text-light);">60%</strong></span>
+                                <span style="color: var(--text-secondary);">HITT/DPR: <strong style="color: var(--text-secondary);">85%</strong></span>
+                                <span style="color: var(--success-green);">M2Ki: <strong class="capability-value" data-target="100">0%</strong></span>
+                            </div>
+                            <p style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 6px; font-style: italic;">SWaM certified, SCIF-ready, FedRAMP alignment, state-level compliance</p>
                         </div>
 
                         <!-- Category 4: Market -->
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                <span style="font-weight: 700; color: var(--text-secondary);"><i data-lucide="target" style="width: 16px; margin-right: 5px;"></i> MARKET POSITIONING</span>
-                                <span style="color: var(--primary-blue); font-weight: 800;">M2Ki LEVEL</span>
+                        <div class="capability-item" data-capability="market">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">
+                                    <i data-lucide="target" style="width: 18px; margin-right: 8px; color: var(--primary-blue);"></i> MARKET POSITIONING
+                                </span>
+                                <span class="capability-value" data-target="95" style="color: var(--primary-blue); font-weight: 800; font-size: 1.1rem;">0%</span>
                             </div>
-                            <div class="progress-bar-container" style="background: rgba(48, 54, 61, 0.5); height: 12px;">
-                                <div class="progress-bar-fill" style="width: 95%; background: var(--primary-blue); box-shadow: var(--shadow-neon);"></div>
+                            <div class="progress-bar-container" style="background: rgba(48, 54, 61, 0.5); height: 16px; border-radius: 8px; position: relative; overflow: hidden;">
+                                <div class="progress-bar-fill capability-bar" data-target="95" style="width: 0%; background: linear-gradient(90deg, var(--primary-blue), #00d4ff); box-shadow: var(--shadow-neon); height: 100%; transition: width 1.5s ease-out;"></div>
+                                <div style="position: absolute; right: 0; top: 0; height: 100%; width: 80%; background: rgba(139, 148, 158, 0.3); border-left: 2px dashed var(--text-light);" title="HITT/DPR: 80%"></div>
+                                <div style="position: absolute; right: 0; top: 0; height: 100%; width: 55%; background: rgba(48, 54, 61, 0.4);" title="Industry Avg: 55%"></div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 5px;">LEGACY: 45% | MISSION CRITICAL: 95%</div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.75rem;">
+                                <span style="color: var(--text-secondary);">Industry Avg: <strong style="color: var(--text-light);">55%</strong></span>
+                                <span style="color: var(--text-secondary);">HITT/DPR: <strong style="color: var(--text-secondary);">80%</strong></span>
+                                <span style="color: var(--primary-blue);">M2Ki: <strong class="capability-value" data-target="95">0%</strong></span>
+                            </div>
+                            <p style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 6px; font-style: italic;">NoVA data center focus, hyperscale specialization, AI differentiation</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Differentiator Callout -->
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(0, 242, 255, 0.08); border-left: 4px solid var(--primary-blue); border-radius: 8px;">
+                        <div style="display: flex; align-items: start; gap: 15px;">
+                            <i data-lucide="sparkles" style="width: 24px; height: 24px; color: var(--primary-blue); flex-shrink: 0; margin-top: 2px;"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue); font-size: 0.9rem;">COMPETITIVE ADVANTAGE:</strong>
+                                <p style="margin-top: 6px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                                    M2K Intelligence combines <strong style="color: var(--text-primary);">SWaM certification</strong> (100% compliance) with <strong style="color: var(--text-primary);">cutting-edge AI integration</strong> (95% tech capability), 
+                                    positioning us uniquely in the NoVA market. While Tier 1 players excel in scale, M2Ki offers <strong style="color: var(--primary-blue);">mission-critical precision</strong> 
+                                    with <strong style="color: var(--primary-blue);">government-ready compliance</strong>—a combination no competitor can match.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -224,8 +301,8 @@
                         <h4>THE LOGO SHIFT</h4>
                         <p style="font-size: 0.9rem; color: var(--text-secondary);">Abstract representation of a structural I-beam morphing into a circuit board trace.</p>
                         <div class="data-line"></div>
-                        <div style="text-align: center; padding: 20px;">
-                            <span style="font-size: 2rem; font-weight: 800;">M2K <span style="color: var(--primary-blue);">i</span></span>
+                        <div style="text-align: center; padding: 30px 20px; background: rgba(0, 242, 255, 0.03); border-radius: 8px; margin-top: 20px;">
+                            <img src="assets/images/m2ki-logo.png" alt="M2K Intelligence Logo" style="max-width: 100%; height: auto; width: 100%; object-fit: contain;">
                         </div>
                     </div>
                     <div class="glass-card" style="grid-column: span 8;" data-aos="fade-up" data-aos-delay="100">

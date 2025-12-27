@@ -45,6 +45,55 @@
 
 /* Custom map marker styles are now in index.html inline styles */
 
+/* Capability Power Matrix */
+.capability-item {
+    padding: 20px;
+    background: rgba(22, 27, 34, 0.3);
+    border-radius: 10px;
+    border: 1px solid var(--slate-grey-border);
+    transition: all 0.3s ease;
+}
+
+.capability-item:hover {
+    border-color: var(--primary-blue);
+    background: rgba(22, 27, 34, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 242, 255, 0.1);
+}
+
+.progress-bar-container {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.capability-value {
+    font-family: var(--font-display);
+    transition: all 0.3s ease;
+}
+
 /* Capability Spider Web (Radar) */
 .radar-container {
     padding: 40px;
