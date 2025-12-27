@@ -172,16 +172,28 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
+.brand-logo-link {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.brand-logo-link:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
 .brand-logo-img {
     height: 65px;
     width: auto;
     max-width: 280px;
     object-fit: contain;
     transition: var(--transition-base);
+    display: block;
 }
 
-.brand-logo-img:hover {
-    opacity: 0.9;
+.brand-logo-link:hover .brand-logo-img {
     filter: drop-shadow(0 0 8px var(--primary-glow));
 }
 

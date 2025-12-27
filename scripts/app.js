@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollToTop();
     initializeSections();
     initializeScrollSpy();
+    initializeLogoClick();
     
     // Initialize Lucide icons
     if (window.lucide) {
