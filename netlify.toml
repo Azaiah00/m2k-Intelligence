@@ -6,15 +6,16 @@
 [functions]
   directory = "netlify/functions"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-## API routes -> Netlify Functions
+## API routes -> Netlify Functions (MUST come before catch-all)
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
+  status = 200
+
+## Catch-all for SPA routing (must come last)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200
 
 [build.environment]

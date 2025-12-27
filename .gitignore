@@ -1,5 +1,6 @@
 # Secrets (never commit)
 local.secrets.json
+.env
 
 # Node / tooling
 node_modules/

@@ -45,6 +45,26 @@
 
 /* Custom map marker styles are now in index.html inline styles */
 
+/* Responsive adjustments for components */
+@media (max-width: 768px) {
+    .labs-card {
+        grid-column: span 12 !important;
+        margin-bottom: 20px;
+    }
+
+    .remodel-canvas {
+        aspect-ratio: 4 / 3;
+    }
+
+    .progress-bar-container {
+        height: 14px;
+    }
+
+    .capability-item {
+        margin-bottom: 25px;
+    }
+}
+
 /* Capability Power Matrix */
 .capability-item {
     padding: 20px;

@@ -75,6 +75,12 @@ h1, h2, h3, h4 {
 }
 
 /* Global Infographic Elements */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
 .section {
     padding: 100px 0;
     border-bottom: 1px solid var(--slate-grey-border);
@@ -435,5 +441,322 @@ h1, h2, h3, h4 {
 
     .nav-menu.active {
         display: flex;
+    }
+
+    .nav-container {
+        padding: 12px 20px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .hero-title {
+        font-size: 3rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .glass-card {
+        padding: 20px;
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 10px 15px;
+    }
+
+    .brand-logo-img {
+        height: 45px;
+        max-width: 180px;
+    }
+
+    .hero-section {
+        padding-top: 100px;
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem !important;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero-cta .btn-cyber,
+    .hero-cta .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+        font-size: 1.75rem;
+    }
+
+    .section-title p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .glass-card {
+        padding: 20px 15px;
+    }
+
+    .infographic-grid {
+        gap: 20px;
+    }
+
+    /* Hero metrics grid */
+    .infographic-grid > .glass-card {
+        grid-column: span 12 !important;
+        margin-bottom: 20px;
+    }
+
+    /* All grid items full width on mobile */
+    .infographic-grid > div[style*="grid-column"] {
+        grid-column: span 12 !important;
+    }
+
+    .btn-cyber,
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Typography adjustments */
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    /* Capability Matrix mobile */
+    .capability-item {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    /* Map responsive */
+    .map-infographic {
+        height: 350px;
+    }
+
+    /* Logo in rebrand section */
+    .glass-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Badge adjustments */
+    .badge {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    /* Metric tiles */
+    .metric-tile {
+        padding: 20px;
+    }
+
+    .metric-tile .value {
+        font-size: 2rem;
+    }
+
+    /* AI Assistant widget */
+    .ai-assistant-widget {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        width: auto;
+        max-width: none;
+    }
+
+    .ai-assistant-panel {
+        width: 100%;
+        max-height: 70vh;
+    }
+
+    /* Roadmap steps */
+    .roadmap-step {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Color system grid */
+    .grid-4,
+    .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    /* Comparison legend */
+    .capability-item + .capability-item {
+        margin-top: 0;
+    }
+
+    /* Partnership section */
+    .metric-tile {
+        max-width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    /* Partnership section responsive */
+    #partnership {
+        padding: 60px 0 !important;
+    }
+
+    #partnership h2 {
+        font-size: 2rem !important;
+    }
+
+    #partnership p {
+        font-size: 1rem !important;
+        padding: 0 15px;
+    }
+
+    #partnership .metric-tile {
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    #partnership > div > div {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    /* Hero metrics responsive */
+    .hero-content .infographic-grid {
+        margin-top: 40px;
+    }
+
+    /* Logo in rebrand section */
+    .glass-card img[src*="m2ki-logo"] {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    /* Color system grid mobile */
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Capability matrix legend mobile */
+    .capability-item + div[style*="display: flex"][style*="justify-content: center"] {
+        flex-direction: column !important;
+        gap: 15px !important;
+        padding: 12px !important;
+    }
+
+    /* Scroll to top button */
+    .scroll-to-top {
+        bottom: 80px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    /* Data line adjustments */
+    .data-line {
+        margin: 15px 0;
+    }
+
+    /* Icon box mobile */
+    .icon-box {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Badge mobile */
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* Section padding adjustments */
+    .section {
+        padding: 40px 0;
+    }
+}
+
+/* Small Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem !important;
+    }
+
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .brand-logo-img {
+        height: 40px;
+        max-width: 150px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    .glass-card {
+        padding: 15px 10px;
+    }
+
+    .btn-cyber,
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    .stat-value {
+        font-size: 2.5rem !important;
+    }
+
+    .counter {
+        font-size: 2rem !important;
     }
 }
