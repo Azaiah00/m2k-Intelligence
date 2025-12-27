@@ -400,6 +400,7 @@ h1, h2, h3, h4 {
     padding: 10px;
     color: white;
     outline: none;
+    font-size: 1rem; /* 16px - prevents mobile zoom */
 }
 
 .ai-assistant-input button {
@@ -643,6 +644,11 @@ h1, h2, h3, h4 {
     .ai-assistant-panel {
         width: 100%;
         max-height: 70vh;
+    }
+
+    /* Prevent zoom on input focus - font-size 16px minimum */
+    .ai-assistant-input input {
+        font-size: 16px !important;
     }
 
     /* Roadmap steps */

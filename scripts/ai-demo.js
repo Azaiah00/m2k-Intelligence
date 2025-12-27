@@ -144,6 +144,10 @@ function initializeAIAssistant() {
                 sendMessage();
             }
         });
+        
+        // Reset zoom on mobile after input loses focus
+        // On mobile, blur event will naturally reset zoom since font-size is 16px
+        // No additional handling needed - the 16px font-size prevents zoom
     }
 }
 
