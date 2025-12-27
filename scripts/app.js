@@ -127,6 +127,36 @@ function initializeScrollSpy() {
     updateActiveNav(); // Initial call
 }
 
+// Initialize logo click to scroll to top
+function initializeLogoClick() {
+    const logoLink = document.querySelector('.brand-logo-link');
+    if (logoLink) {
+        logoLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Scroll to top smoothly
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(l => l.classList.remove('active'));
+            const heroLink = document.querySelector('a[href="#hero"]');
+            if (heroLink) {
+                heroLink.classList.add('active');
+            }
+            
+            // Close mobile menu if open
+            const navMenu = document.getElementById('navMenu');
+            if (navMenu) {
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+}
+
 // Smooth scroll polyfill for older browsers
 if (!('scrollBehavior' in document.documentElement.style)) {
     // Add smooth scroll polyfill if needed
