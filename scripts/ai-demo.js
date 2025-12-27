@@ -145,9 +145,8 @@ function initializeAIAssistant() {
             }
         });
         
-        // Reset zoom on mobile after input loses focus
-        // On mobile, blur event will naturally reset zoom since font-size is 16px
-        // No additional handling needed - the 16px font-size prevents zoom
+        // Font-size is set to 16px (1rem) in CSS, which prevents mobile browsers from auto-zooming
+        // No additional blur handling needed
     }
 }
 
