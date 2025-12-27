@@ -1,0 +1,13 @@
+{
+  "name": "m2k-intelligence-presentation",
+  "version": "1.0.0",
+  "description": "M2K Intelligence Strategic Transformation Presentation",
+  "scripts": {
+    "dev": "npx netlify-cli dev",
+    "dev:static": "npx http-server -p 3000 -o",
+    "start": "npx http-server -p 3000 -o"
+  },
+  "keywords": ["presentation", "strategy", "construction"],
+  "author": "DataIsData",
+  "license": "UNLICENSED"
+}

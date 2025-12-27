@@ -1,0 +1,277 @@
+/* ========================================
+   M2K Intelligence - Infographic Components
+   ======================================== */
+
+/* Metric Overlays */
+.metric-tile {
+    padding: 24px;
+    border-radius: 8px;
+    background: rgba(22, 27, 34, 0.5);
+    border-left: 3px solid var(--primary-blue);
+}
+
+.metric-tile .value {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+/* Data Flow Lines (Decorative) */
+.data-line {
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-blue), transparent);
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Interactive Map Mockup */
+.map-infographic {
+    height: 500px;
+    background: var(--slate-grey-light);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--slate-grey-border);
+}
+
+.map-node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-blue);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.map-node:hover {
+    transform: scale(2);
+    box-shadow: 0 0 20px var(--primary-blue);
+}
+
+/* Capability Spider Web (Radar) */
+.radar-container {
+    padding: 40px;
+    background: radial-gradient(circle, var(--slate-grey-light) 0%, transparent 100%);
+}
+
+/* Timeline Overhaul */
+.roadmap-step {
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 1px solid var(--slate-grey-border);
+    position: relative;
+}
+
+.roadmap-step::after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--slate-grey-border);
+}
+
+.roadmap-step.active::after {
+    background: var(--primary-blue);
+    box-shadow: 0 0 10px var(--primary-blue);
+}
+
+/* Comparison Toggle */
+.comparison-switch {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.switch-btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid var(--slate-grey-border);
+    background: var(--slate-grey-light);
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.switch-btn.active {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    box-shadow: var(--shadow-neon);
+}
+
+/* Hero Overlay */
+.hero-infographic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+}
+
+/* Icon Box */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 242, 255, 0.05);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.btn-cyber {
+    padding: 14px 30px;
+    background: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+    transition: var(--transition-base);
+}
+
+.btn-cyber:hover {
+    background: var(--primary-blue);
+    color: var(--bg-main);
+    box-shadow: var(--shadow-neon);
+}
+
+/* ========================================
+   M2Ki Labs (Tools)
+   ======================================== */
+
+.labs-card {
+    background: rgba(22, 27, 34, 0.45);
+    border: 1px solid var(--slate-grey-border);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.labs-head {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.labs-textarea {
+    width: 100%;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    border: 1px solid var(--slate-grey-border);
+    border-radius: 8px;
+    padding: 12px;
+    resize: vertical;
+    font-family: var(--font-body);
+    margin-top: 8px;
+}
+
+.labs-input,
+.labs-select,
+.labs-file {
+    width: 100%;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    border: 1px solid var(--slate-grey-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-family: var(--font-body);
+}
+
+.labs-select {
+    cursor: pointer;
+}
+
+.labs-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.labs-status {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.labs-output {
+    margin-top: 14px;
+    padding: 14px;
+    background: rgba(1, 4, 9, 0.75);
+    border: 1px solid var(--slate-grey-border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    min-height: 80px;
+    max-height: 280px;
+    overflow: auto;
+}
+
+/* Virtual Remodeling Studio */
+.remodel-controls {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.remodel-stage {
+    margin-top: 12px;
+    border: 1px solid var(--slate-grey-border);
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(1, 4, 9, 0.6);
+}
+
+.remodel-canvas {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(22, 27, 34, 0.65);
+}
+
+.remodel-canvas img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.remodel-after-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    width: 50%;
+    border-right: 2px solid var(--primary-blue);
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+.remodel-slider {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.remodel-legend {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}

@@ -1,0 +1,15 @@
+# Secrets (never commit)
+local.secrets.json
+
+# Node / tooling
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+
