@@ -12,17 +12,42 @@ const path = require("node:path");
 
 function readLocalSecrets() {
   try {
-    const secretsPath = path.join(process.cwd(), "local.secrets.json");
-    if (!fs.existsSync(secretsPath)) return {};
-    const raw = fs.readFileSync(secretsPath, "utf8");
-    return JSON.parse(raw);
-  } catch {
+    // Try multiple possible paths for local.secrets.json
+    const possiblePaths = [
+      path.join(process.cwd(), "local.secrets.json"), // Project root
+      path.join(__dirname, "..", "..", "local.secrets.json"), // From functions folder
+      path.resolve(process.cwd(), "local.secrets.json"), // Absolute path
+    ];
+    
+    for (const secretsPath of possiblePaths) {
+      if (fs.existsSync(secretsPath)) {
+        const raw = fs.readFileSync(secretsPath, "utf8");
+        const parsed = JSON.parse(raw);
+        if (parsed.GEMINI_API_KEY) {
+          return parsed;
+        }
+      }
+    }
+    return {};
+  } catch (err) {
+    console.error("Error reading local.secrets.json:", err.message);
     return {};
   }
 }
 
 function getApiKey() {
-  return process.env.GEMINI_API_KEY || readLocalSecrets().GEMINI_API_KEY || "";
+  // Check environment variable first (Netlify production)
+  if (process.env.GEMINI_API_KEY) {
+    return process.env.GEMINI_API_KEY;
+  }
+  
+  // Check local secrets file (development)
+  const secrets = readLocalSecrets();
+  if (secrets.GEMINI_API_KEY) {
+    return secrets.GEMINI_API_KEY;
+  }
+  
+  return "";
 }
 
 function json(statusCode, body) {
@@ -62,6 +87,11 @@ exports.handler = async (event) => {
 
   const apiKey = getApiKey();
   if (!apiKey) {
+    console.error("GEMINI_API_KEY not found. Checked:", {
+      env: !!process.env.GEMINI_API_KEY,
+      cwd: process.cwd(),
+      secretsFile: fs.existsSync(path.join(process.cwd(), "local.secrets.json")),
+    });
     return json(400, {
       error:
         "Missing GEMINI_API_KEY. Add it in Netlify environment variables (production) or create local.secrets.json (local).",
@@ -83,6 +113,8 @@ exports.handler = async (event) => {
 
   const model = "gemini-2.5-flash-image";
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+  
+  console.log("Calling Gemini API:", { model, url: url.replace(apiKey, "***"), hasImage: !!image });
 
   const instruction = presetToInstruction(preset);
   const prompt =
@@ -116,16 +148,41 @@ exports.handler = async (event) => {
   });
 
   if (!resp.ok) {
-    const errText = await resp.text().catch(() => "");
-    return json(resp.status, { error: "Gemini request failed", details: errText });
+    const errText = await resp.text().catch(() => "Unknown error");
+    let errData;
+    try {
+      errData = JSON.parse(errText);
+    } catch {
+      errData = { message: errText };
+    }
+    console.error("Gemini API error:", {
+      status: resp.status,
+      statusText: resp.statusText,
+      error: errData,
+    });
+    return json(resp.status, {
+      error: `Gemini API error (${resp.status})`,
+      details: errData?.error?.message || errData?.message || errText,
+    });
   }
 
   const data = await resp.json();
+  console.log("Gemini response structure:", {
+    hasCandidates: !!data?.candidates,
+    candidatesLength: data?.candidates?.length,
+    firstCandidate: data?.candidates?.[0] ? "exists" : "missing",
+  });
 
   // Find first inlineData image in the response
   const parts = data?.candidates?.[0]?.content?.parts || [];
   const inline = parts.find((p) => p?.inlineData?.data);
-  if (!inline) return json(500, { error: "No image returned by model" });
+  if (!inline) {
+    console.error("No image in response:", JSON.stringify(data, null, 2));
+    return json(500, {
+      error: "No image returned by model",
+      details: "Response structure: " + JSON.stringify(data).substring(0, 200),
+    });
+  }
 
   const outMime = inline.inlineData.mimeType || "image/png";
   const outB64 = inline.inlineData.data;

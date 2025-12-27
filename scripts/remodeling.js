@@ -40,26 +40,45 @@ async function generateRemodel() {
   const slider = $("remodelSlider");
 
   const file = fileInput?.files?.[0];
-  if (!file) return;
+  if (!file) {
+    setText(status, "Please select an image first");
+    return;
+  }
 
   setText(status, "Uploading...");
-  const imageDataUrl = await readFileAsDataUrl(file);
-  if (beforeImg) beforeImg.src = imageDataUrl;
+  let imageDataUrl;
+  try {
+    imageDataUrl = await readFileAsDataUrl(file);
+    if (beforeImg) beforeImg.src = imageDataUrl;
+  } catch (err) {
+    setText(status, "Failed to read image file");
+    console.error("Image read error:", err);
+    return;
+  }
 
   setText(status, "Generating...");
   setHtml(afterImg, "");
 
-  const resp = await fetch("/api/gemini-image", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ preset, extraInstructions: extra, imageDataUrl }),
-  });
+  let resp;
+  try {
+    resp = await fetch("/api/gemini-image", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ preset, extraInstructions: extra, imageDataUrl }),
+    });
+  } catch (err) {
+    setText(status, "Network error: Is dev server running?");
+    console.error("Fetch error:", err);
+    return;
+  }
 
   if (!resp.ok) {
     const err = await resp.json().catch(() => ({}));
+    const errorMsg = err?.error || err?.details || `HTTP ${resp.status}: Generation failed.`;
+    console.error("Remodeling API error:", errorMsg, err);
     setText(
       status,
-      err?.error || "Generation failed. Check GEMINI_API_KEY configuration.",
+      errorMsg.length > 80 ? errorMsg.substring(0, 80) + "..." : errorMsg,
     );
     return;
   }

@@ -35,21 +35,15 @@
     border: 1px solid var(--slate-grey-border);
 }
 
-.map-node {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: var(--primary-blue);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--primary-blue);
-    cursor: pointer;
-    transition: var(--transition-base);
+/* Leaflet map container styling */
+.map-infographic .leaflet-container {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    background: var(--slate-grey-light);
 }
 
-.map-node:hover {
-    transform: scale(2);
-    box-shadow: 0 0 20px var(--primary-blue);
-}
+/* Custom map marker styles are now in index.html inline styles */
 
 /* Capability Spider Web (Radar) */
 .radar-container {
@@ -223,6 +217,52 @@
 }
 
 /* Virtual Remodeling Studio */
+.remodel-instructions {
+    margin-bottom: 16px;
+    padding: 10px 12px;
+    background: rgba(1, 4, 9, 0.4);
+    border: 1px solid var(--slate-grey-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.remodel-instructions summary {
+    list-style: none;
+    user-select: none;
+    padding: 4px 0;
+}
+
+.remodel-instructions summary::-webkit-details-marker {
+    display: none;
+}
+
+.remodel-instructions summary::marker {
+    display: none;
+}
+
+.remodel-instructions[open] {
+    padding: 12px;
+}
+
+.remodel-instructions[open] summary {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--slate-grey-border);
+}
+
+.instructions-content {
+    padding-top: 8px;
+    border-top: 1px solid var(--slate-grey-border);
+}
+
+.instructions-content ol {
+    margin: 0;
+}
+
+.instructions-content ul {
+    margin: 4px 0;
+}
+
 .remodel-controls {
     display: grid;
     gap: 10px;

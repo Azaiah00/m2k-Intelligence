@@ -24,6 +24,10 @@
     <!-- AOS for scroll animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Leaflet for interactive map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -374,6 +378,36 @@
                                     <p style="margin: 6px 0 0; font-size: 0.85rem; color: var(--text-secondary);">Declutter, stage, and concept remodels using Gemini image generation.</p>
                                 </div>
                             </div>
+                            
+                            <!-- Instructions Panel -->
+                            <details class="remodel-instructions">
+                                <summary style="cursor: pointer; color: var(--primary-blue); font-size: 0.85rem; font-weight: 500; margin-bottom: 0; display: flex; align-items: center; gap: 6px;">
+                                    <i data-lucide="help-circle" style="width: 16px; height: 16px;"></i>
+                                    <span>How to Use (Click to expand)</span>
+                                </summary>
+                                <div class="instructions-content">
+                                    <ol style="margin: 0; padding-left: 20px; font-size: 0.8rem; line-height: 1.8; color: var(--text-secondary);">
+                                        <li><strong style="color: var(--text-primary);">Upload Image:</strong> Click "Choose File" and select a photo of the space you want to remodel (kitchen, bathroom, living room, or exterior).</li>
+                                        <li><strong style="color: var(--text-primary);">Select Preset:</strong> Choose the transformation type from the dropdown:
+                                            <ul style="margin-top: 4px; padding-left: 20px;">
+                                                <li><strong>Kitchen:</strong> Declutters and stages the space</li>
+                                                <li><strong>Bathroom:</strong> Cleans and refreshes the design</li>
+                                                <li><strong>Living:</strong> Declutters and stages for presentation</li>
+                                                <li><strong>Exterior:</strong> Repairs and enhances curb appeal</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong style="color: var(--text-primary);">Add Constraints (Optional):</strong> Specify what to keep or change (e.g., "keep white cabinets, modern brass fixtures, add plants").</li>
+                                        <li><strong style="color: var(--text-primary);">Generate:</strong> Click the "Generate" button and wait 10-30 seconds for AI processing.</li>
+                                        <li><strong style="color: var(--text-primary);">Compare:</strong> Use the slider to compare before/after. Drag left to see original, right to see remodeled version.</li>
+                                        <li><strong style="color: var(--text-primary);">Download:</strong> Once generated, click "Download" to save the remodeled image.</li>
+                                    </ol>
+                                    <p style="margin-top: 12px; padding: 10px; background: rgba(0, 242, 255, 0.1); border-left: 3px solid var(--primary-blue); border-radius: 4px; font-size: 0.75rem; color: var(--text-secondary);">
+                                        <i data-lucide="lightbulb" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 6px;"></i>
+                                        <strong style="color: var(--primary-blue);">Tip:</strong> Best results with clear, well-lit photos. The AI will maintain the room's structure while transforming the design.
+                                    </p>
+                                </div>
+                            </details>
+                            
                             <div class="remodel-controls">
                                 <input id="remodelInput" type="file" accept="image/*" class="labs-file" />
                                 <select id="remodelPreset" class="labs-select">
@@ -427,14 +461,10 @@
                 <div class="infographic-grid">
                     <div class="glass-card" style="grid-column: span 8;">
                         <h3 style="margin-bottom: 20px;"><i data-lucide="globe" class="icon-blue"></i> THE VIRGINIA BATTLEGROUND</h3>
-                        <div class="map-infographic">
-                            <!-- SVG Map or Nodes represent DC clusters -->
-                            <div class="map-node" style="top: 20%; left: 30%;" title="Ashburn Cluster"></div>
-                            <div class="map-node" style="top: 25%; left: 35%;" title="Sterling Cluster"></div>
-                            <div class="map-node" style="top: 40%; left: 45%;" title="Manassas Cluster"></div>
-                            <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.8); padding: 10px; font-size: 0.7rem; border: 1px solid var(--primary-blue);">
-                                <i data-lucide="circle" style="width: 10px; height: 10px; fill: var(--primary-blue);"></i> ACTIVE HYPERSCALE SITE
-                            </div>
+                        <div id="nova-map" class="map-infographic"></div>
+                        <div style="margin-top: 12px; display: flex; justify-content: flex-end; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--text-secondary);">
+                            <i data-lucide="circle" style="width: 10px; height: 10px; fill: var(--primary-blue);"></i>
+                            <span>ACTIVE HYPERSCALE SITE</span>
                         </div>
                     </div>
                     <div style="grid-column: span 4; display: flex; flex-direction: column; gap: 20px;">
@@ -665,6 +695,141 @@
             once: true,
             offset: 100
         });
+        
+        // Initialize Leaflet Map for Northern Virginia Data Center Clusters
+        function initNovaMap() {
+            const mapContainer = document.getElementById('nova-map');
+            if (!mapContainer || typeof L === 'undefined') return;
+            
+            // Center on Northern Virginia (Loudoun County)
+            const map = L.map('nova-map', {
+                center: [39.04, -77.45],
+                zoom: 10,
+                zoomControl: true,
+                attributionControl: false
+            });
+            
+            // Use dark-themed tile layer (CartoDB Dark Matter or similar)
+            // Fallback to standard OpenStreetMap if dark tiles fail
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+            
+            // Data center cluster locations (Northern Virginia)
+            const clusters = [
+                {
+                    name: 'Ashburn Cluster',
+                    lat: 39.0476,
+                    lng: -77.4874,
+                    description: 'Loudoun County - Largest hyperscale concentration. Home to AWS, Microsoft, Google data centers.'
+                },
+                {
+                    name: 'Sterling Cluster',
+                    lat: 39.0068,
+                    lng: -77.4297,
+                    description: 'Loudoun County - Major enterprise and hyperscale facilities.'
+                },
+                {
+                    name: 'Manassas Cluster',
+                    lat: 38.7509,
+                    lng: -77.4753,
+                    description: 'Prince William County - Growing hyperscale expansion zone.'
+                }
+            ];
+            
+            // Create custom icon with electric blue glow
+            const createCustomIcon = () => {
+                return L.divIcon({
+                    className: 'custom-map-marker',
+                    html: `<div style="
+                        width: 16px;
+                        height: 16px;
+                        background: #00f2ff;
+                        border: 2px solid #00f2ff;
+                        border-radius: 50%;
+                        box-shadow: 0 0 10px #00f2ff, 0 0 20px rgba(0, 242, 255, 0.5);
+                        animation: pulse 2s infinite;
+                    "></div>`,
+                    iconSize: [16, 16],
+                    iconAnchor: [8, 8]
+                });
+            };
+            
+            // Add markers for each cluster
+            clusters.forEach(cluster => {
+                const marker = L.marker([cluster.lat, cluster.lng], {
+                    icon: createCustomIcon()
+                }).addTo(map);
+                
+                marker.bindPopup(`
+                    <div style="color: #e6edf3; font-family: 'Inter', sans-serif;">
+                        <strong style="color: #00f2ff; font-size: 1.1em;">${cluster.name}</strong><br>
+                        <span style="font-size: 0.9em; color: #8b949e;">${cluster.description}</span>
+                    </div>
+                `);
+            });
+        }
+        
+        // Initialize map when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initNovaMap);
+        } else {
+            initNovaMap();
+        }
     </script>
+    
+    <style>
+        /* Custom map marker pulse animation */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.3);
+                opacity: 0.7;
+            }
+        }
+        
+        /* Leaflet map dark theme adjustments */
+        #nova-map {
+            z-index: 0;
+        }
+        
+        #nova-map .leaflet-container {
+            background: var(--slate-grey-light);
+        }
+        
+        #nova-map .leaflet-popup-content-wrapper {
+            background: var(--slate-grey-light);
+            color: var(--text-primary);
+            border: 1px solid var(--primary-blue);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+        }
+        
+        #nova-map .leaflet-popup-tip {
+            background: var(--slate-grey-light);
+            border: 1px solid var(--primary-blue);
+        }
+        
+        #nova-map .leaflet-control-zoom {
+            border: 1px solid var(--slate-grey-border);
+            background: var(--slate-grey-light);
+        }
+        
+        #nova-map .leaflet-control-zoom a {
+            background: var(--slate-grey-light);
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--slate-grey-border);
+        }
+        
+        #nova-map .leaflet-control-zoom a:hover {
+            background: var(--slate-grey);
+            color: var(--primary-blue);
+        }
+    </style>
 </body>
 </html>

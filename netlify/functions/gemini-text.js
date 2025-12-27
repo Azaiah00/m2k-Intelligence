@@ -10,17 +10,42 @@ const path = require("node:path");
 
 function readLocalSecrets() {
   try {
-    const secretsPath = path.join(process.cwd(), "local.secrets.json");
-    if (!fs.existsSync(secretsPath)) return {};
-    const raw = fs.readFileSync(secretsPath, "utf8");
-    return JSON.parse(raw);
-  } catch {
+    // Try multiple possible paths for local.secrets.json
+    const possiblePaths = [
+      path.join(process.cwd(), "local.secrets.json"), // Project root
+      path.join(__dirname, "..", "..", "local.secrets.json"), // From functions folder
+      path.resolve(process.cwd(), "local.secrets.json"), // Absolute path
+    ];
+    
+    for (const secretsPath of possiblePaths) {
+      if (fs.existsSync(secretsPath)) {
+        const raw = fs.readFileSync(secretsPath, "utf8");
+        const parsed = JSON.parse(raw);
+        if (parsed.GEMINI_API_KEY) {
+          return parsed;
+        }
+      }
+    }
+    return {};
+  } catch (err) {
+    console.error("Error reading local.secrets.json:", err.message);
     return {};
   }
 }
 
 function getApiKey() {
-  return process.env.GEMINI_API_KEY || readLocalSecrets().GEMINI_API_KEY || "";
+  // Check environment variable first (Netlify production)
+  if (process.env.GEMINI_API_KEY) {
+    return process.env.GEMINI_API_KEY;
+  }
+  
+  // Check local secrets file (development)
+  const secrets = readLocalSecrets();
+  if (secrets.GEMINI_API_KEY) {
+    return secrets.GEMINI_API_KEY;
+  }
+  
+  return "";
 }
 
 function json(statusCode, body) {
